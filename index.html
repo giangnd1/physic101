@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics as Wisdom — Vật Lý Như Một Minh Triết</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&family=Cormorant:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --gold: #C8993A;
+    --gold-light: #E8C97A;
+    --teal: #2E7D6B;
+    --slate: #4A5568;
+    --mid: #D4C5A9;
+    --cream: #F7F4EF;
+    --white: #FFFFFF;
+    --black: #0D0D0D;
+    --paper: #FAF8F4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background: var(--black);
+    color: var(--cream);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 3rem;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(200,153,58,0.2);
+  }
+  .nav-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase; text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
+    color: rgba(212,197,169,0.7); text-decoration: none; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    padding: 7rem 3rem 5rem;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 30% 50%, rgba(27,42,74,0.6) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 75% 30%, rgba(46,125,107,0.15) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(rgba(200,153,58,1) 0.5px, transparent 0.5px),
+                      linear-gradient(90deg, rgba(200,153,58,1) 0.5px, transparent 0.5px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    position: relative; text-align: center; max-width: 900px;
+    animation: fadeUp 1.2s ease both;
+  }
+  .hero-series {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.35em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 2.5rem;
+  }
+  .hero-title {
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 300; line-height: 0.95;
+    color: var(--white); letter-spacing: -0.02em; margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: italic; color: var(--gold); font-weight: 300; }
+  .hero-vn {
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-style: italic; font-weight: 300;
+    color: var(--mid); letter-spacing: 0.03em; margin-bottom: 3rem;
+  }
+  .hero-rule {
+    width: 80px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 2.5rem;
+  }
+  .hero-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    color: rgba(212,197,169,0.65); line-height: 2; margin-bottom: 3.5rem;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    padding: 0.9rem 2.2rem;
+    border: 0.5px solid rgba(200,153,58,0.5);
+    color: var(--gold); text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    transition: all 0.3s; cursor: pointer; background: none;
+    border-radius: 1px;
+  }
+  .hero-cta:hover { background: rgba(200,153,58,0.1); border-color: var(--gold); }
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    animation: pulse 2.5s ease infinite;
+  }
+  .hero-scroll span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(200,153,58,0.5);
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(180deg, rgba(200,153,58,0.5), transparent);
+  }
+
+  /* ── SECTION WRAPPER ── */
+  section { padding: 6rem 3rem; }
+
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; font-weight: 500; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300; color: var(--white);
+    line-height: 1.1; margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .gold-rule {
+    width: 50px; height: 1px;
+    background: var(--gold); margin-bottom: 2rem;
+  }
+
+  /* ── BOOK COVER ── */
+  #cover {
+    background: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 6rem 3rem;
+  }
+  .book-cover {
+    max-width: 500px; width: 100%;
+    background: var(--navy);
+    box-shadow: 0 60px 120px rgba(0,0,0,0.6), inset 4px 0 0 rgba(200,153,58,0.3);
+    padding: 5rem 4rem;
+    position: relative; overflow: hidden;
+    animation: fadeUp 0.8s ease both;
+  }
+  .book-cover::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 2px,
+      rgba(200,153,58,0.015) 2px, rgba(200,153,58,0.015) 4px
+    );
+  }
+  .book-cover::after {
+    content: ''; position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(46,125,107,0.2) 0%, transparent 70%);
+  }
+  .cover-inner { position: relative; z-index: 1; }
+  .cover-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 3rem;
+  }
+  .cover-title {
+    font-size: 3.2rem; font-weight: 300; line-height: 1;
+    color: var(--white); margin-bottom: 0.6rem;
+  }
+  .cover-title-vn {
+    font-size: 1.4rem; font-style: italic; font-weight: 300;
+    color: var(--gold); margin-bottom: 2.5rem;
+  }
+  .cover-rule { width: 60px; height: 1px; background: var(--gold); margin-bottom: 2.5rem; }
+  .cover-sub {
+    font-size: 0.95rem; font-style: italic; font-weight: 300;
+    color: var(--mid); line-height: 1.6; margin-bottom: 2rem;
+  }
+  .cover-sub2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; letter-spacing: 0.1em; color: rgba(212,197,169,0.5);
+    margin-bottom: 3.5rem;
+  }
+  .cover-badge {
+    display: inline-block;
+    border: 0.5px solid rgba(200,153,58,0.4);
+    padding: 0.4rem 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(200,153,58,0.7);
+  }
+
+  /* ── TOC ── */
+  #toc { background: #0a0a0a; }
+  .toc-container { max-width: 900px; margin: 0 auto; }
+  .toc-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; margin-top: 3rem;
+  }
+  .toc-item {
+    padding: 1.8rem 2rem;
+    border: 0.5px solid rgba(200,153,58,0.1);
+    cursor: pointer; transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .toc-item::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+    background: var(--gold); transform: scaleY(0); transform-origin: bottom;
+    transition: transform 0.3s;
+  }
+  .toc-item:hover { background: rgba(200,153,58,0.04); }
+  .toc-item:hover::before { transform: scaleY(1); }
+  .toc-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; letter-spacing: 0.3em; color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .toc-name {
+    font-size: 1.05rem; font-weight: 400; color: var(--white);
+    margin-bottom: 0.35rem; line-height: 1.3;
+  }
+  .toc-sub {
+    font-size: 0.78rem; font-style: italic;
+    color: rgba(212,197,169,0.5); line-height: 1.4;
+  }
+  .toc-page {
+    position: absolute; bottom: 1.2rem; right: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; color: rgba(200,153,58,0.35);
+    letter-spacing: 0.1em;
+  }
+  .toc-item.featured {
+    grid-column: 1 / -1;
+    background: rgba(27,42,74,0.4);
+    border-color: rgba(200,153,58,0.25);
+  }
+
+  /* ── PREFACE ── */
+  #preface { background: var(--navy); }
+  .preface-container { max-width: 780px; margin: 0 auto; }
+  .preface-quote {
+    border-left: 2px solid var(--gold);
+    padding: 1.5rem 0 1.5rem 2rem;
+    margin-bottom: 3rem;
+    font-size: 1.25rem; font-style: italic; font-weight: 300;
+    color: var(--cream); line-height: 1.7;
+  }
+  .preface-quote cite {
+    display: block; margin-top: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; letter-spacing: 0.15em; font-style: normal;
+    color: var(--gold);
+  }
+  .preface-body {
+    font-size: 1.05rem; line-height: 1.9; color: rgba(247,244,239,0.85);
+    margin-bottom: 1.8rem;
+  }
+  .preface-section {
+    margin-top: 3rem; padding-top: 3rem;
+    border-top: 0.5px solid rgba(200,153,58,0.2);
+  }
+  .preface-section h3 {
+    font-size: 1.3rem; font-weight: 400; color: var(--gold);
+    margin-bottom: 1.2rem; letter-spacing: 0.02em;
+  }
+  .preface-list { list-style: none; }
+  .preface-list li {
+    padding: 0.6rem 0 0.6rem 1.5rem;
+    position: relative;
+    font-size: 1rem; line-height: 1.7; color: rgba(247,244,239,0.8);
+  }
+  .preface-list li::before {
+    content: '✦'; position: absolute; left: 0;
+    color: var(--gold); font-size: 0.7rem; top: 0.85rem;
+  }
+  .preface-tiers {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .tier-card {
+    background: rgba(0,0,0,0.3);
+    border: 0.5px solid rgba(200,153,58,0.15);
+    padding: 1.5rem;
+  }
+  .tier-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; letter-spacing: 0.3em; color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .tier-title { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; }
+  .tier-desc { font-size: 0.82rem; color: rgba(212,197,169,0.65); line-height: 1.5; }
+
+  /* ── BIG PICTURE ── */
+  #ch0 { background: #0d0d0d; }
+  .ch0-container { max-width: 1000px; margin: 0 auto; }
+  .story-block {
+    max-width: 780px; margin: 0 auto 4rem;
+    font-size: 1.05rem; line-height: 1.95;
+    color: rgba(247,244,239,0.82);
+  }
+  .story-block .story-lead {
+    font-size: 1.25rem; font-style: italic; color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .pull-quote {
+    border: 0.5px solid rgba(200,153,58,0.25);
+    border-left: 2px solid var(--gold);
+    padding: 1.5rem 2rem; margin: 2.5rem 0;
+    font-size: 1.1rem; font-style: italic;
+    color: rgba(247,244,239,0.9); line-height: 1.7;
+    background: rgba(200,153,58,0.03);
+  }
+  .pull-quote cite {
+    display: block; margin-top: 0.6rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; letter-spacing: 0.15em; font-style: normal;
+    color: rgba(200,153,58,0.7);
+  }
+
+  /* Timeline */
+  .timeline { margin: 4rem 0; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 50%; top: 0; bottom: 0; width: 1px;
+    background: linear-gradient(180deg, transparent, var(--gold), transparent);
+    transform: translateX(-50%);
+  }
+  .tl-item {
+    display: grid; grid-template-columns: 1fr 60px 1fr;
+    gap: 1rem; align-items: start; margin-bottom: 3rem;
+  }
+  .tl-left { text-align: right; padding-right: 1.5rem; }
+  .tl-right { padding-left: 1.5rem; }
+  .tl-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--gold); margin: 0.35rem auto;
+    box-shadow: 0 0 0 3px rgba(200,153,58,0.2);
+  }
+  .tl-era {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; letter-spacing: 0.25em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 0.4rem;
+  }
+  .tl-name { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.4rem; }
+  .tl-desc { font-size: 0.82rem; color: rgba(212,197,169,0.6); line-height: 1.5; }
+  .tl-mm {
+    display: inline-block; margin-top: 0.5rem;
+    border: 0.5px solid rgba(46,125,107,0.4);
+    padding: 0.2rem 0.6rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  /* Mental Models Grid */
+  .mm-title {
+    font-size: 1.4rem; font-weight: 400; color: var(--white);
+    margin: 4rem 0 2rem;
+  }
+  .mm-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+    margin-bottom: 4rem;
+  }
+  .mm-card {
+    border: 0.5px solid rgba(200,153,58,0.15);
+    padding: 1.5rem;
+    background: rgba(27,42,74,0.2);
+    transition: all 0.3s; cursor: default;
+    position: relative;
+  }
+  .mm-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0); transition: transform 0.4s;
+  }
+  .mm-card:hover { background: rgba(27,42,74,0.4); }
+  .mm-card:hover::after { transform: scaleX(1); }
+  .mm-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .mm-name { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.25rem; }
+  .mm-eng { font-size: 0.78rem; font-style: italic; color: rgba(212,197,169,0.5); margin-bottom: 0.6rem; }
+  .mm-desc { font-size: 0.82rem; color: rgba(212,197,169,0.7); line-height: 1.5; }
+
+  /* ── 10 MODELS OVERVIEW ── */
+  #overview { background: var(--navy); }
+  .overview-container { max-width: 1000px; margin: 0 auto; }
+  .models-grid {
+    display: grid; grid-template-columns: repeat(2,1fr); gap: 1px;
+    background: rgba(200,153,58,0.1); margin-top: 3rem;
+  }
+  .model-item {
+    background: var(--navy); padding: 2rem;
+    transition: background 0.3s; cursor: default;
+  }
+  .model-item:hover { background: rgba(0,0,0,0.4); }
+  .model-roman {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; letter-spacing: 0.3em; color: var(--gold);
+    margin-bottom: 0.7rem;
+  }
+  .model-name { font-size: 1.1rem; font-weight: 400; color: var(--white); margin-bottom: 0.3rem; }
+  .model-eng { font-size: 0.8rem; font-style: italic; color: rgba(200,153,58,0.6); margin-bottom: 0.7rem; }
+  .model-desc { font-size: 0.85rem; color: rgba(212,197,169,0.65); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050505;
+    padding: 4rem 3rem;
+    text-align: center;
+    border-top: 0.5px solid rgba(200,153,58,0.15);
+  }
+  .footer-symbol { font-size: 1.5rem; color: var(--gold); margin-bottom: 1.5rem; }
+  .footer-title {
+    font-size: 1.2rem; font-weight: 300; color: var(--white); margin-bottom: 0.4rem;
+  }
+  .footer-sub {
+    font-size: 0.85rem; font-style: italic; color: var(--mid); margin-bottom: 2rem;
+  }
+  .footer-series {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px; letter-spacing: 0.25em; color: rgba(200,153,58,0.4);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.35s; }
+  .reveal-delay-4 { transition-delay: 0.5s; }
+
+  /* ── READING PROGRESS ── */
+  #progress {
+    position: fixed; top: 0; left: 0; height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    z-index: 200; width: 0%; transition: width 0.1s linear;
+  }
+
+  /* ── CHAPTER TABS ── */
+  .ch0-tabs {
+    display: flex; gap: 0; margin-bottom: 3rem; margin-top: 3rem;
+    border-bottom: 0.5px solid rgba(200,153,58,0.2);
+    overflow-x: auto;
+  }
+  .ch0-tab {
+    padding: 0.8rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(212,197,169,0.5); cursor: pointer;
+    border-bottom: 2px solid transparent; transition: all 0.2s;
+    white-space: nowrap; background: none; border: none;
+    border-bottom: 2px solid transparent;
+  }
+  .ch0-tab:hover { color: var(--cream); }
+  .ch0-tab.active {
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+  }
+  .ch0-panel { display: none; }
+  .ch0-panel.active { display: block; }
+
+  /* responsive */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero-content { padding: 0; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .tl-item { grid-template-columns: 1fr; }
+    .timeline::before { display: none; }
+    .tl-left { text-align: left; padding-right: 0; padding-left: 1rem; border-left: 2px solid var(--gold); }
+    .tl-right { padding-left: 1rem; border-left: 2px solid rgba(200,153,58,0.2); }
+    .tl-dot { display: none; }
+    .mm-grid { grid-template-columns: 1fr; }
+    .models-grid { grid-template-columns: 1fr; }
+    .preface-tiers { grid-template-columns: 1fr; }
+    .book-cover { padding: 3rem 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <a href="#hero" class="nav-logo">Physics as Wisdom</a>
+  <div class="nav-links">
+    <a href="#cover">Bìa Sách</a>
+    <a href="#toc">Mục Lục</a>
+    <a href="#preface">Lời Nói Đầu</a>
+    <a href="#ch0">Chương 0</a>
+    <a href="#overview">10 Models</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <p class="hero-series">Series 11 Chương · Bộ Hoàn Chỉnh</p>
+    <h1 class="hero-title">Physics<br><em>as Wisdom</em></h1>
+    <p class="hero-vn">Vật Lý Như Một Minh Triết</p>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">
+      Từ Những Định Luật Vũ Trụ Đến Nghệ Thuật Sống<br>
+      Mental Models Từ Vật Lý Nền Tảng Ứng Dụng Vào Cuộc Sống<br>
+      Phong Cách Storytelling · Theo Tinh Thần Feynman & Harari
+    </p>
+    <a href="#cover" class="hero-cta">Khám phá tác phẩm →</a>
+  </div>
+  <div class="hero-scroll">
+    <span>Cuộn xuống</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ BOOK COVER ═══ -->
+<section id="cover" style="background:#111; padding:6rem 3rem;">
+  <div style="max-width:600px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:3rem;">
+    <div class="section-label reveal">Bìa Sách</div>
+    <div class="book-cover reveal reveal-delay-1" style="width:100%;">
+      <div class="cover-inner">
+        <div class="cover-num">Physics as Wisdom · Series 11 Chương</div>
+        <div class="cover-title">Physics<br>as Wisdom</div>
+        <div class="cover-title-vn">Vật Lý Như Một Minh Triết</div>
+        <div class="cover-rule"></div>
+        <div class="cover-sub">Từ Những Định Luật Vũ Trụ đến Nghệ Thuật Sống<br>Mental Models Từ Vật Lý Nền Tảng Ứng Dụng Vào Cuộc Sống</div>
+        <div class="cover-sub2">Series 11 Chương · Bộ Hoàn Chỉnh<br>Biên soạn theo phương pháp storytelling của Yuval Noah Harari</div>
+        <div class="cover-badge">MIT · Vật Lý · Triết Học · Lý Thuyết Hệ Thống</div>
+      </div>
+    </div>
+    <p class="reveal reveal-delay-2" style="font-size:0.88rem; font-style:italic; color:rgba(212,197,169,0.5); text-align:center; max-width:400px; line-height:1.7;">
+      Tên sách được chọn lọc để ngắn gọn, sâu sắc, và trúng ý — kết hợp ngôn ngữ khoa học quốc tế với chiều sâu triết học.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ TOC ═══ -->
+<section id="toc">
+  <div class="toc-container">
+    <div class="reveal"><p class="section-label">Mục Lục</p></div>
+    <div class="reveal reveal-delay-1">
+      <h2 class="section-title">Kiến Trúc<br>của <em>Hành Trình</em></h2>
+      <div class="gold-rule"></div>
+      <p style="font-size:0.9rem; color:rgba(212,197,169,0.6); max-width:520px; line-height:1.7;">
+        11 chương, mỗi chương tối thiểu 50 trang A4 — từ Big Picture đến Đại Thống Nhất.
+      </p>
+    </div>
+
+    <div class="toc-grid reveal reveal-delay-2">
+      <div class="toc-item featured" onclick="document.getElementById('ch0').scrollIntoView({behavior:'smooth'})">
+        <div class="toc-num">Chương 0</div>
+        <div class="toc-name">Big Picture — Bản Đồ Hành Trình</div>
+        <div class="toc-sub">Vật Lý Như Một Nền Minh Triết · Lịch Sử Tiến Hóa · 10 Mental Models Lớn</div>
+        <div class="toc-page">tr. 1</div>
+      </div>
+
+      <div class="toc-item">
+        <div class="toc-num">Chương 1</div>
+        <div class="toc-name">Thực Tại Là Gì?</div>
+        <div class="toc-sub">Từ Plato đến Cơ Học Lượng Tử · Bản Chất Của Mô Hình</div>
+        <div class="toc-page">tr. 55</div>
+      </div>
+
+      <div class="toc-item">
+        <div class="toc-num">Chương 2</div>
+        <div class="toc-name">Entropy & Thời Gian</div>
+        <div class="toc-sub">Tại Sao Mọi Thứ Đều Tan Rã · Tạo Ra Trật Tự Từ Hỗn Loạn</div>
+        <div class="toc-page">tr. 110</div>
+      </div>
+
+      <div class="toc-item">
+        <div class="toc-num">Chương 3</div>
+        <div class="toc-name">Lực & Đòn Bẩy</div>
+        <div class="toc-sub">Newton Trong Cuộc Sống · Từ Quán Tính Đến Sức Mạnh Nhân Đôi</div>
+        <div class="toc-page">tr. 165</div>
+      </div>
+
+      <div class="toc-item">
+        <div class="toc-num">Chương 4</div>
+        <div class="toc-name">Trường & Hệ Thống</div>
+        <div class="toc-sub">Những Gì Ta Không Thấy Mới Quyết Định Tất Cả</div>
+        <div class="toc-page">tr. 220</div>
+      </div>
+
+      <div class="toc-item">
+        <div class="toc-num">Chương 5</div>
+        <div class="toc-name">Cộng Hưởng & Sóng</div>
+        <div class="toc-sub">Tần Số Của Cuộc Sống · Kết Nối, Khuếch Đại và Phá Hủy</div>
+        <div class="toc-page">tr. 275</div>
+      </div>
+
+      <div class="toc-item">
+        <div class="toc-num">Chương 6</div>
+        <div class="toc-name">Lượng Tử & Bất Định</div>
+        <div class="toc-sub">Heisenberg Trong Quyết Định · Sống Với Xác Suất</div>
+        <div class="toc-page">tr. 330</div>
+      </div>
+
+      <div class="toc-item">
+        <div class="toc-num">Chương 7</div>
+        <div class="toc-name">Tương Đối & Góc Nhìn</div>
+        <div class="toc-sub">Einstein Dạy: Mọi Thứ Phụ Thuộc Vào Vị Trí Quan Sát</div>
+        <div class="toc-page">tr. 385</div>
+      </div>
+
+      <div class="toc-item">
+        <div class="toc-num">Chương 8</div>
+        <div class="toc-name">Nhiệt Động Lực Học</div>
+        <div class="toc-sub">Năng Lượng, Nhiệt Độ và Giới Hạn Của Mọi Hệ Thống</div>
+        <div class="toc-page">tr. 440</div>
+      </div>
+
+      <div class="toc-item">
+        <div class="toc-num">Chương 9</div>
+        <div class="toc-name">Tiến Hóa & Phức Hợp</div>
+        <div class="toc-sub">Từ Vật Lý Thống Kê Đến Sự Xuất Hiện Của Trí Tuệ</div>
+        <div class="toc-page">tr. 495</div>
+      </div>
+
+      <div class="toc-item featured">
+        <div class="toc-num">Chương 10 + Epilogue</div>
+        <div class="toc-name">Đại Thống Nhất — Synthesis · Câu Chuyện Xâu Chuỗi</div>
+        <div class="toc-sub">Khi Vật Lý Trở Thành Triết Học Sống · Mười Nguyên Lý · Một Người Mười Cửa Sổ</div>
+        <div class="toc-page">tr. 550</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PREFACE ═══ -->
+<section id="preface">
+  <div class="preface-container">
+    <div class="reveal"><p class="section-label">Lời Nói Đầu</p></div>
+    <div class="reveal reveal-delay-1">
+      <h2 class="section-title">Thư Gửi Người Đọc<br>từ <em>Một Giáo Sư MIT</em></h2>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="reveal reveal-delay-2">
+      <div class="preface-quote">
+        "Vật lý không chỉ là khoa học về tự nhiên. Đó là ngôn ngữ mà vũ trụ dùng để kể câu chuyện của chính mình — và chúng ta, nếu đủ kiên nhẫn lắng nghe, sẽ học được cách kể lại câu chuyện của chính mình theo ngôn ngữ đó."
+        <cite>— Richard Feynman</cite>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-3">
+      <p class="preface-body">Cambridge, Massachusetts. Một buổi chiều muộn tháng Mười, năm 1987. Tôi đang đứng trước bảng đen trong căn phòng thí nghiệm tầng ba của tòa nhà 26 — tòa nhà vật lý huyền thoại của MIT — khi một sinh viên năm nhất gõ cửa. Cô ấy đặt ra một câu hỏi mà tôi chưa bao giờ nghe từ bất kỳ sinh viên nào trước đó:</p>
+      <p class="preface-body" style="font-style:italic; color:var(--cream); padding-left:2rem; border-left:2px solid rgba(200,153,58,0.3);">"Thưa giáo sư, vật lý dạy chúng ta điều gì về cách sống một cuộc đời tốt đẹp?"</p>
+      <p class="preface-body">Tôi dừng lại. Nhìn cô ấy. Rồi nhìn ra cửa sổ, nơi ánh hoàng hôn đang rọi lên dòng sông Charles một màu vàng đồng. Và tôi nhận ra — sau 20 năm giảng dạy vật lý — rằng tôi chưa bao giờ thực sự suy nghĩ nghiêm túc về câu hỏi đó.</p>
+      <p class="preface-body" style="font-weight:500; color:var(--cream);">Cuốn sách này là câu trả lời mà tôi đã mất thêm ba mươi năm nữa để hoàn thành.</p>
+    </div>
+
+    <div class="preface-section reveal">
+      <h3>Cuốn Sách Này Dành Cho Ai</h3>
+      <ul class="preface-list">
+        <li>Cảm thấy rằng cuộc sống phức tạp hơn những gì các sách self-help thông thường có thể giải thích</li>
+        <li>Muốn có một khung tư duy nhất quán, khoa học và sâu sắc để điều hướng sự phức tạp</li>
+        <li>Tò mò về khoa học nhưng không muốn chỉ học những con số và công thức</li>
+        <li>Tin rằng trí tuệ thực sự nằm ở giao điểm của nhiều lĩnh vực khác nhau</li>
+      </ul>
+    </div>
+
+    <div class="preface-section reveal">
+      <h3>Cách Đọc — Ba Tầng Hành Trình</h3>
+      <div class="preface-tiers">
+        <div class="tier-card">
+          <div class="tier-num">Tầng Một</div>
+          <div class="tier-title">Câu chuyện</div>
+          <div class="tier-desc">Những khoảnh khắc lịch sử, con người, thí nghiệm tư duy làm thay đổi cách nhân loại nhìn thế giới.</div>
+        </div>
+        <div class="tier-card">
+          <div class="tier-num">Tầng Hai</div>
+          <div class="tier-title">Nguyên lý</div>
+          <div class="tier-desc">Nguyên lý vật lý cốt lõi — không có công thức, nhưng có tư duy. Không có phương trình, nhưng có cấu trúc.</div>
+        </div>
+        <div class="tier-card">
+          <div class="tier-num">Tầng Ba</div>
+          <div class="tier-title">Mental Model</div>
+          <div class="tier-desc">Chưng cất nguyên lý thành công cụ tư duy cụ thể — ánh xạ trực tiếp từ định luật vật lý đã được kiểm chứng.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHAPTER 0 ═══ -->
+<section id="ch0">
+  <div class="ch0-container">
+    <div class="reveal"><p class="section-label">Chương 0</p></div>
+    <div class="reveal reveal-delay-1">
+      <h2 class="section-title">Big Picture</h2>
+      <p style="font-size:1.2rem; font-style:italic; color:var(--teal); margin-bottom:0.5rem;">Bản Đồ Của Một Cuộc Hành Trình</p>
+      <p style="font-size:1rem; font-style:italic; color:rgba(212,197,169,0.6); margin-bottom:2rem;">Vật Lý Như Một Nền Minh Triết</p>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="reveal reveal-delay-2">
+      <div class="pull-quote">
+        "Nếu bạn chỉ biết một điều về vũ trụ, hãy biết điều này: mọi thứ đều liên kết với nhau theo những cách mà ta chưa tưởng tượng được."
+        <cite>— Carl Sagan, Cosmos</cite>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="ch0-tabs reveal">
+      <button class="ch0-tab active" onclick="switchTab(this,'tab-story')">Câu Chuyện</button>
+      <button class="ch0-tab" onclick="switchTab(this,'tab-history')">Lịch Sử Tiến Hóa</button>
+      <button class="ch0-tab" onclick="switchTab(this,'tab-models')">10 Mental Models</button>
+      <button class="ch0-tab" onclick="switchTab(this,'tab-philosophy')">Triết Học</button>
+    </div>
+
+    <!-- Tab: Story -->
+    <div class="ch0-panel active" id="tab-story">
+      <div class="story-block">
+        <p class="story-lead">Năm 1666, một dịch bệnh bùng phát ở Cambridge, Anh Quốc. Một sinh viên 23 tuổi tên Isaac Newton buộc phải trở về trang trại gia đình ở Woolsthorpe.</p>
+        <p>Trong hai năm đó, Newton phát minh ra giải tích vi tích phân, đặt nền móng cho quang học hiện đại, và khám phá ra định luật vạn vật hấp dẫn.</p>
+        <p>Câu chuyện về quả táo rơi không thú vị vì cái táo. Nó thú vị vì câu hỏi mà Newton đặt ra: <em>Tại sao táo rơi xuống thay vì bay lên?</em> Và câu hỏi tiếp theo, vĩ đại hơn: Nếu lực kéo quả táo xuống cũng là lực giữ Mặt Trăng trên quỹ đạo — thì đó không phải là hai hiện tượng riêng biệt, mà là <strong>một hiện tượng duy nhất</strong>?</p>
+        <div class="pull-quote">
+          Ba trăm rưỡi năm sau, chúng ta vẫn đang theo đuổi cùng một giấc mơ đó. Và trong hành trình đó, vật lý đã trở thành điều gì đó lớn hơn một bộ môn khoa học — nó đã trở thành <em>một cách nhìn thế giới</em>, một triết học, một nền minh triết.
+        </div>
+        <p>Richard Feynman đã nói rằng ông không chỉ muốn dạy vật lý. Ông muốn dạy cho sinh viên <strong>cách suy nghĩ như một nhà vật lý</strong> — và đó là một kỹ năng hoàn toàn khác.</p>
+        <p>Cuốn sách này là nỗ lực truyền đạt cách suy nghĩ đó — không phải qua công thức, mà qua câu chuyện, ví dụ và những mô hình tư duy cụ thể.</p>
+      </div>
+    </div>
+
+    <!-- Tab: History -->
+    <div class="ch0-panel" id="tab-history">
+      <div style="max-width:780px; margin:0 auto 2rem;">
+        <p style="font-size:1rem; color:rgba(212,197,169,0.7); line-height:1.8; margin-bottom:2rem;">Để hiểu vật lý như một nền minh triết, chúng ta cần hiểu hành trình của nó — qua năm cuộc cách mạng tư duy lớn, mỗi cuộc phá vỡ những gì chúng ta nghĩ là chắc chắn.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-era">600 TCN – 1600</div>
+            <div class="tl-name">Vật Lý Cổ Đại</div>
+            <div class="tl-desc">Thales, Democritus, Aristotle. Lần đầu tiên nhân loại giải thích thế giới bằng logic thay vì thần thoại.</div>
+            <div class="tl-mm">Câu hỏi đúng > câu trả lời đúng</div>
+          </div>
+          <div><div class="tl-dot"></div></div>
+          <div class="tl-right" style="display:flex;align-items:center;height:100%;">
+            <p style="font-size:0.85rem;color:rgba(200,153,58,0.5);font-style:italic;">"Không phải ai đúng ai sai — mà ai đặt câu hỏi đúng"</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-left" style="display:flex;align-items:center;height:100%;">
+            <p style="font-size:0.85rem;color:rgba(200,153,58,0.5);font-style:italic;">"Câu hỏi đúng quan trọng hơn câu trả lời đúng"</p>
+          </div>
+          <div><div class="tl-dot"></div></div>
+          <div class="tl-right">
+            <div class="tl-era">1543 – 1700</div>
+            <div class="tl-name">Cách Mạng Khoa Học</div>
+            <div class="tl-desc">Copernicus, Galileo, Newton. Từ "tại sao" sang "như thế nào". Thực nghiệm thay thế quyền uy.</div>
+            <div class="tl-mm">Paradigm Shift</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-era">1700 – 1900</div>
+            <div class="tl-name">Vật Lý Cổ Điển Đỉnh Cao</div>
+            <div class="tl-desc">Maxwell, Boltzmann. Thống nhất điện từ. Lord Kelvin tuyên bố vật lý "hoàn chỉnh". Hai đám mây nhỏ xuất hiện.</div>
+            <div class="tl-mm">Tìm "đám mây nhỏ"</div>
+          </div>
+          <div><div class="tl-dot"></div></div>
+          <div class="tl-right" style="display:flex;align-items:center;">
+            <p style="font-size:0.85rem;color:rgba(200,153,58,0.5);font-style:italic;">"Khi mô hình cần thêm ngoại lệ mãi — đó là dấu hiệu của giới hạn"</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-left" style="display:flex;align-items:center;">
+            <p style="font-size:0.85rem;color:rgba(200,153,58,0.5);font-style:italic;">"Thượng đế không chơi xúc xắc" — Einstein. "Hãy ngừng nói cho Ngài biết phải làm gì" — Bohr</p>
+          </div>
+          <div><div class="tl-dot"></div></div>
+          <div class="tl-right">
+            <div class="tl-era">1900 – 1940</div>
+            <div class="tl-name">Cách Mạng Lượng Tử & Tương Đối</div>
+            <div class="tl-desc">Planck, Einstein, Bohr, Heisenberg. Vũ trụ không hoạt động theo nhân quả tất định — mà theo xác suất.</div>
+            <div class="tl-mm">Sống với bất định</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-left">
+            <div class="tl-era">1940 – Nay</div>
+            <div class="tl-name">Vật Lý Hiện Đại</div>
+            <div class="tl-desc">Vật lý hạt, vũ trụ học, hệ phức hợp. 95% vũ trụ là vật chất tối và năng lượng tối chưa hiểu được.</div>
+            <div class="tl-mm">Lý thuyết của mọi thứ</div>
+          </div>
+          <div><div class="tl-dot"></div></div>
+          <div class="tl-right" style="display:flex;align-items:center;">
+            <p style="font-size:0.85rem;color:rgba(200,153,58,0.5);font-style:italic;">"Chúng ta đang ở buổi sáng sớm của vũ trụ"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Models -->
+    <div class="ch0-panel" id="tab-models">
+      <div style="max-width:780px; margin:0 auto 2rem;">
+        <p style="font-size:1rem; color:rgba(212,197,169,0.7); line-height:1.8;">Trước khi đi vào từng chương, đây là cái nhìn tổng quan về mười mental models vật lý nền tảng — hội tụ xuyên suốt toàn bộ cuốn sách.</p>
+      </div>
+
+      <div class="mm-grid">
+        <div class="mm-card">
+          <div class="mm-num">Mental Model 1</div>
+          <div class="mm-name">Bản Đồ Không Phải Lãnh Thổ</div>
+          <div class="mm-eng">The Map Is Not the Territory</div>
+          <div class="mm-desc">Mọi mô hình đều là sự đơn giản hóa có chủ đích. Biết khi nào mô hình của bạn đang nói chuyện với thực tại và khi nào nó đang nói chuyện với chính nó.</div>
+        </div>
+        <div class="mm-card">
+          <div class="mm-num">Mental Model 2</div>
+          <div class="mm-name">Nguyên Lý Entropy</div>
+          <div class="mm-eng">Everything Tends Toward Disorder</div>
+          <div class="mm-desc">Trật tự cần năng lượng để duy trì. Mọi hệ thống không được nuôi dưỡng đều suy thoái. Sự suy thoái đó có thể là nguyên liệu cho sự sáng tạo mới.</div>
+        </div>
+        <div class="mm-card">
+          <div class="mm-num">Mental Model 3</div>
+          <div class="mm-name">Nguyên Lý Đòn Bẩy</div>
+          <div class="mm-eng">Leverage & Force Multiplication</div>
+          <div class="mm-desc">Một lực nhỏ tác động đúng điểm có thể tạo ra hiệu ứng lớn hơn nhiều lần. Hiệu quả không đến từ làm nhiều hơn, mà từ tìm đúng điểm tựa.</div>
+        </div>
+        <div class="mm-card">
+          <div class="mm-num">Mental Model 4</div>
+          <div class="mm-name">Nguyên Lý Trường Ẩn</div>
+          <div class="mm-eng">Hidden Fields Shape Reality</div>
+          <div class="mm-desc">Những gì không thể nhìn thấy — văn hóa, cấu trúc quyền lực, kỳ vọng xã hội — thường quyết định hành vi nhiều hơn những gì có thể thấy.</div>
+        </div>
+        <div class="mm-card">
+          <div class="mm-num">Mental Model 5</div>
+          <div class="mm-name">Nguyên Lý Cộng Hưởng</div>
+          <div class="mm-eng">Resonance & Frequency Matching</div>
+          <div class="mm-desc">Mỗi hệ thống có tần số tự nhiên. Sức mạnh đến từ việc tìm và khuếch đại tần số đó, không phải áp đặt tần số bên ngoài.</div>
+        </div>
+        <div class="mm-card">
+          <div class="mm-num">Mental Model 6</div>
+          <div class="mm-name">Nguyên Lý Bất Định Lượng Tử</div>
+          <div class="mm-eng">Living With Irreducible Uncertainty</div>
+          <div class="mm-desc">Không thể biết đồng thời một cách chính xác tất cả mọi thứ. Khôn ngoan là quyết định dưới bất định, không phải loại bỏ bất định.</div>
+        </div>
+        <div class="mm-card">
+          <div class="mm-num">Mental Model 7</div>
+          <div class="mm-name">Nguyên Lý Tương Đối Quan Sát</div>
+          <div class="mm-eng">The Observer Changes the Observed</div>
+          <div class="mm-desc">Không có quan điểm đặc quyền. Mọi đo lường đều phụ thuộc vào vị trí của người quan sát — nhưng có những bất biến thực sự.</div>
+        </div>
+        <div class="mm-card">
+          <div class="mm-num">Mental Model 8</div>
+          <div class="mm-name">Nguyên Lý Dòng Năng Lượng</div>
+          <div class="mm-eng">Energy Flows & Efficiency</div>
+          <div class="mm-desc">Mọi hệ thống đều là bài toán về năng lượng — cái vào, cái ra, cái mất đi. Hiểu dòng năng lượng là hiểu cốt lõi của bất kỳ hệ thống nào.</div>
+        </div>
+        <div class="mm-card">
+          <div class="mm-num">Mental Model 9</div>
+          <div class="mm-name">Nguyên Lý Xuất Hiện Phức Hợp</div>
+          <div class="mm-eng">Emergence From Simple Rules</div>
+          <div class="mm-desc">Những hành vi phức tạp nhất xuất hiện từ những quy tắc đơn giản tương tác với nhau. Không cần người thiết kế, không cần trí tuệ tập trung.</div>
+        </div>
+        <div class="mm-card">
+          <div class="mm-num">Mental Model 10</div>
+          <div class="mm-name">Nguyên Lý Đại Thống Nhất</div>
+          <div class="mm-eng">The Search for Unifying Principles</div>
+          <div class="mm-desc">Khôn ngoan không đến từ việc biết nhiều thứ rời rạc, mà từ việc thấy nguyên lý thống nhất đằng sau sự đa dạng bề mặt.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Philosophy -->
+    <div class="ch0-panel" id="tab-philosophy">
+      <div class="story-block">
+        <h3 style="font-size:1.4rem; font-weight:400; color:var(--gold); margin-bottom:1.5rem;">Triết Học Xuyên Suốt — Nguyên Lý Đồng Hình</h3>
+        <p class="story-lead">Physics as Wisdom xây dựng trên một tiên đề triết học: <strong>Nguyên Lý Đồng Hình (Isomorphism Principle)</strong> — những nguyên lý cấu trúc giống nhau xuất hiện ở nhiều cấp độ khác nhau của thực tại.</p>
+        <p>Entropy không chỉ là vấn đề của nhiệt học — nó xuất hiện trong hệ thống xã hội, trong thông tin, trong tổ chức, trong mối quan hệ. Cộng hưởng không chỉ là hiện tượng âm học — nó là nguyên lý của mọi kết nối hiệu quả, từ âm nhạc đến tình bạn đến chiến lược kinh doanh.</p>
+
+        <div class="pull-quote">
+          Khi bạn học một nguyên lý vật lý đủ sâu để hiểu <em>tại sao</em> nó đúng — không chỉ là nó đúng — bạn sẽ thấy dấu hiệu của nó xuất hiện ở khắp nơi trong cuộc sống.
+        </div>
+
+        <h3 style="font-size:1.3rem; font-weight:400; color:var(--teal); margin:2.5rem 0 1rem;">Kiến Trúc Của Cuốn Sách</h3>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:1.5rem;">
+          <div style="border:0.5px solid rgba(200,153,58,0.2); padding:1.5rem; background:rgba(27,42,74,0.3);">
+            <p style="font-family:'Montserrat',sans-serif; font-size:9px; letter-spacing:0.25em; color:var(--gold); margin-bottom:0.6rem;">TẦNG NỀN MÓNG</p>
+            <p style="font-size:0.95rem; color:var(--white); margin-bottom:0.5rem;">Chương 0–1</p>
+            <p style="font-size:0.82rem; color:rgba(212,197,169,0.6); line-height:1.5;">Triết học nền tảng. Thực tại là gì? Mô hình là gì? Đây là nền nhận thức luận cho toàn bộ cuốn sách.</p>
+          </div>
+          <div style="border:0.5px solid rgba(200,153,58,0.2); padding:1.5rem; background:rgba(27,42,74,0.3);">
+            <p style="font-family:'Montserrat',sans-serif; font-size:9px; letter-spacing:0.25em; color:var(--gold); margin-bottom:0.6rem;">CÁC CỘT TRỤ</p>
+            <p style="font-size:0.95rem; color:var(--white); margin-bottom:0.5rem;">Chương 2–9</p>
+            <p style="font-size:0.82rem; color:rgba(212,197,169,0.6); line-height:1.5;">Tám nguyên lý vật lý lớn, mỗi cái là một cột trụ — từ Entropy đến Tiến Hóa & Phức Hợp.</p>
+          </div>
+          <div style="border:0.5px solid rgba(200,153,58,0.2); padding:1.5rem; background:rgba(27,42,74,0.3);">
+            <p style="font-family:'Montserrat',sans-serif; font-size:9px; letter-spacing:0.25em; color:var(--gold); margin-bottom:0.6rem;">MÁI VÒNG</p>
+            <p style="font-size:0.95rem; color:var(--white); margin-bottom:0.5rem;">Chương 10</p>
+            <p style="font-size:0.82rem; color:rgba(212,197,169,0.6); line-height:1.5;">Đại Thống Nhất — khi tất cả những nguyên lý hội tụ thành một triết học sống nhất quán.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 10 MODELS OVERVIEW ═══ -->
+<section id="overview">
+  <div class="overview-container">
+    <div class="reveal"><p class="section-label">10 Nguyên Lý Cốt Lõi</p></div>
+    <div class="reveal reveal-delay-1">
+      <h2 class="section-title">Đại Thống Nhất<br><em>Mười Nguyên Lý</em> Của Minh Triết Vật Lý</h2>
+      <div class="gold-rule"></div>
+      <p style="font-size:0.9rem; color:rgba(212,197,169,0.6); max-width:560px; line-height:1.8;">Từ tất cả những gì đã khám phá qua 11 chương — mười lăng kính để nhìn thế giới, mười câu hỏi để hỏi, và mười thái độ để nuôi dưỡng.</p>
+    </div>
+
+    <div class="models-grid reveal reveal-delay-2">
+      <div class="model-item">
+        <div class="model-roman">NGUYÊN LÝ I</div>
+        <div class="model-name">Nguyên Lý Bản Đồ</div>
+        <div class="model-eng">Mọi Mô Hình Đều Sai — Một Số Thì Hữu Ích</div>
+        <div class="model-desc">Người khôn ngoan không hỏi 'Mô hình này đúng không?' mà hỏi 'Mô hình này hữu ích cho mục đích gì, trong phạm vi nào?'</div>
+      </div>
+      <div class="model-item">
+        <div class="model-roman">NGUYÊN LÝ II</div>
+        <div class="model-name">Nguyên Lý Entropy</div>
+        <div class="model-eng">Trật Tự Cần Chi Phí — Hỗn Loạn Là Mặc Định</div>
+        <div class="model-desc">Mọi thứ có giá trị đều cần đầu tư năng lượng liên tục. Câu hỏi: Chúng ta đang bơm đủ năng lượng chất lượng cao vào nó không?</div>
+      </div>
+      <div class="model-item">
+        <div class="model-roman">NGUYÊN LÝ III</div>
+        <div class="model-name">Nguyên Lý Đòn Bẩy</div>
+        <div class="model-eng">Lực Nhỏ Đúng Điểm Hiệu Quả Hơn Lực Lớn Sai Chỗ</div>
+        <div class="model-desc">Hiệu quả thực sự không đến từ việc làm nhiều hơn — mà từ việc tìm đúng điểm tựa trước khi tác động lực.</div>
+      </div>
+      <div class="model-item">
+        <div class="model-roman">NGUYÊN LÝ IV</div>
+        <div class="model-name">Nguyên Lý Trường</div>
+        <div class="model-eng">Những Gì Vô Hình Thường Quyết Định Tất Cả</div>
+        <div class="model-desc">Thay vì hỏi 'Tại sao người này hành xử như vậy?', hỏi 'Trường nào đang định hình hành vi này?'</div>
+      </div>
+      <div class="model-item">
+        <div class="model-roman">NGUYÊN LÝ V</div>
+        <div class="model-name">Nguyên Lý Cộng Hưởng</div>
+        <div class="model-eng">Tìm Tần Số Đúng Hơn Là Tăng Biên Độ</div>
+        <div class="model-desc">Lực nhỏ đúng tần số hiệu quả hơn lực lớn sai tần số. Nghệ thuật là nhận biết tần số tự nhiên.</div>
+      </div>
+      <div class="model-item">
+        <div class="model-roman">NGUYÊN LÝ VI</div>
+        <div class="model-name">Nguyên Lý Bất Định</div>
+        <div class="model-eng">Khôn Ngoan Là Quyết Định Tốt Trong Bất Định</div>
+        <div class="model-desc">Bất định là nền tảng của thực tại — không phải ngoại lệ cần loại bỏ. Tư duy theo xác suất, cập nhật niềm tin theo bằng chứng.</div>
+      </div>
+      <div class="model-item">
+        <div class="model-roman">NGUYÊN LÝ VII</div>
+        <div class="model-name">Nguyên Lý Khung Tham Chiếu</div>
+        <div class="model-eng">Không Có Người Quan Sát Đặc Quyền</div>
+        <div class="model-desc">Sự khôn ngoan là linh hoạt di chuyển giữa nhiều khung tham chiếu trong khi nắm vững những bất biến. Đây là nền tảng của sự đồng cảm thực sự.</div>
+      </div>
+      <div class="model-item">
+        <div class="model-roman">NGUYÊN LÝ VIII</div>
+        <div class="model-name">Nguyên Lý Gradient</div>
+        <div class="model-eng">Mọi Giá Trị Đến Từ Chênh Lệch</div>
+        <div class="model-desc">Không có gradient, không có công, không có giá trị. Khi gradient biến mất — khi mục đích không còn — sự sống tiến về cân bằng.</div>
+      </div>
+      <div class="model-item">
+        <div class="model-roman">NGUYÊN LÝ IX</div>
+        <div class="model-name">Nguyên Lý Xuất Hiện</div>
+        <div class="model-eng">Những Thứ Quan Trọng Nhất Không Thể Kiểm Soát Trực Tiếp</div>
+        <div class="model-desc">Thiết kế điều kiện và quy tắc tương tác — không phải kết quả — là kỹ năng lãnh đạo cao nhất.</div>
+      </div>
+      <div class="model-item">
+        <div class="model-roman">NGUYÊN LÝ X</div>
+        <div class="model-name">Nguyên Lý Đại Thống Nhất</div>
+        <div class="model-eng">Mọi Thứ Đều Liên Kết — Sự Kết Nối Là Nguồn Gốc Của Ý Nghĩa</div>
+        <div class="model-desc">Tìm kiếm những kết nối ẩn giữa những thứ tưởng như không liên quan — đó là nguồn gốc của cả khoa học lẫn minh triết.</div>
+      </div>
+    </div>
+
+    <div class="pull-quote reveal" style="max-width:680px; margin:4rem auto 0;">
+      "Vũ trụ đã tạo ra những sinh vật có thể hiểu nó. Và điều đó, hơn bất kỳ điều gì khác, làm cho vũ trụ kỳ diệu."
+      <cite>— Freeman Dyson</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-symbol">✦</div>
+  <div class="footer-title">Physics as Wisdom</div>
+  <div class="footer-sub">Vật Lý Như Một Minh Triết · Từ Những Định Luật Vũ Trụ Đến Nghệ Thuật Sống</div>
+  <div class="footer-series">Series 11 Chương · ~688 Trang A4 · 60+ Mental Models</div>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    const pct = (d.scrollTop) / (d.scrollHeight - d.clientHeight) * 100;
+    document.getElementById('progress').style.width = pct + '%';
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Tabs
+  function switchTab(btn, panelId) {
+    document.querySelectorAll('.ch0-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.ch0-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+  }
+
+  // Nav active state
+  const sections = document.querySelectorAll('section[id], footer');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--gold)' : 'rgba(212,197,169,0.7)';
+    });
+  });
+</script>
+</body>
+</html>
